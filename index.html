@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BizAutomation – Automation Tools for Small Businesses</title>
+<meta name="description" content="BizAutomation provides automation tools for small businesses including messaging integrations, WhatsApp automation and appointment booking systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0F0F0E;
+    --surface: #1A1A18;
+    --card:    #222220;
+    --border:  #2E2E2C;
+    --text:    #F0EDE6;
+    --muted:   #888880;
+    --honey:   #F5A623;
+    --honey2:  #E8820C;
+    --white:   #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── GLOW BG ── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -30%;
+    right: -20%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 3rem;
+    background: rgba(15,15,14,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .bee-icon {
+    width: 72px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-text span { color: var(--honey); }
+
+  nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+
+  nav a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  nav a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--honey) !important;
+    color: var(--bg) !important;
+    padding: 0.55rem 1.25rem !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--honey2) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-bee {
+    width: 180px;
+    height: 120px;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--honey);
+    border: 1px solid rgba(245,166,35,0.35);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--honey), var(--honey2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.5s ease 0.2s both;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.5s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--honey), var(--honey2));
+    color: var(--bg);
+    padding: 0.85rem 2.2rem;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(245,166,35,0.3);
+  }
+
+  .btn-ghost {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--honey); color: var(--honey); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--honey);
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 500px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* ── CARDS ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    border-color: rgba(245,166,35,0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .card p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+  }
+
+  .contact-box p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-box a {
+    color: var(--honey);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-box a:hover { text-decoration: underline; }
+
+  .contact-detail {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--honey); }
+
+  /* ── POLICY PAGES ── */
+  .policy-page {
+    display: none;
+    max-width: 720px;
+    margin: 7rem auto 4rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+  }
+
+  .back-btn:hover { color: var(--honey); }
+
+  .policy-page h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .policy-page h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 2rem 0 0.5rem;
+    color: var(--honey);
+  }
+
+  .policy-page p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .policy-page a { color: var(--honey); }
+</style>
+</head>
+<body>
+
+<!-- BEE DRIVING CAR SVG -->
+<svg style="display:none">
+  <symbol id="bee" viewBox="0 0 120 80">
+    <!-- CAR BODY -->
+    <rect x="8" y="44" width="96" height="24" rx="8" fill="#F5A623"/>
+    <!-- CAR ROOF -->
+    <path d="M28 44 Q35 26 55 24 Q75 22 88 44Z" fill="#E8820C"/>
+    <!-- WINDSHIELD -->
+    <path d="M34 44 Q40 30 55 28 Q68 27 78 44Z" fill="#B8E0FF" opacity="0.85"/>
+    <!-- WHEELS -->
+    <circle cx="30" cy="68" r="11" fill="#1A1A18"/>
+    <circle cx="30" cy="68" r="6" fill="#555"/>
+    <circle cx="30" cy="68" r="2.5" fill="#F5A623"/>
+    <circle cx="86" cy="68" r="11" fill="#1A1A18"/>
+    <circle cx="86" cy="68" r="6" fill="#555"/>
+    <circle cx="86" cy="68" r="2.5" fill="#F5A623"/>
+    <!-- HEADLIGHT -->
+    <ellipse cx="104" cy="52" rx="5" ry="4" fill="#FFFACD" opacity="0.9"/>
+    <!-- DOOR LINE -->
+    <line x1="62" y1="44" x2="62" y2="66" stroke="#E8820C" stroke-width="1.5" opacity="0.5"/>
+    <!-- WINDOW -->
+    <path d="M36 42 Q42 32 54 30 Q64 29 72 42Z" fill="#B8E0FF" opacity="0.5"/>
+
+    <!-- BEE DRIVER (visible through windshield, upper half only) -->
+    <!-- Bee head -->
+    <circle cx="54" cy="34" r="9" fill="#F5A623"/>
+    <!-- Bee eyes -->
+    <circle cx="50" cy="32" r="2.2" fill="#1A1A18"/>
+    <circle cx="58" cy="32" r="2.2" fill="#1A1A18"/>
+    <circle cx="50.7" cy="31.3" r="0.7" fill="#fff"/>
+    <circle cx="58.7" cy="31.3" r="0.7" fill="#fff"/>
+    <!-- Smile -->
+    <path d="M50 37 Q54 40 58 37" stroke="#1A1A18" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <!-- Antennae -->
+    <line x1="50" y1="26" x2="45" y2="20" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="58" y1="26" x2="63" y2="20" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="44.5" cy="19.5" r="2" fill="#F5A623"/>
+    <circle cx="63.5" cy="19.5" r="2" fill="#F5A623"/>
+    <!-- Bee body (peeking above wheel) -->
+    <ellipse cx="54" cy="44" rx="8" ry="5" fill="#F5A623"/>
+    <ellipse cx="54" cy="44" rx="8" ry="2" fill="#1A1A18" opacity="0.6"/>
+    <!-- Wings (sticking out of sunroof!) -->
+    <ellipse cx="42" cy="24" rx="11" ry="6" fill="#E0F0FF" opacity="0.8" transform="rotate(-30 42 24)"/>
+    <ellipse cx="66" cy="24" rx="11" ry="6" fill="#E0F0FF" opacity="0.8" transform="rotate(30 66 24)"/>
+    <!-- Steering wheel hint -->
+    <circle cx="54" cy="42" r="4" fill="none" stroke="#1A1A18" stroke-width="1.5" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<nav>
+  <a class="logo" onclick="showMain()">
+    <svg class="bee-icon"><use href="#bee"/></svg>
+    <span class="logo-text">Biz<span>Automation</span></span>
+  </a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="showPolicy('privacy')" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- ══ MAIN PAGE ══ -->
+<div id="main-content">
+
+  <section class="hero">
+    <svg class="hero-bee"><use href="#bee"/></svg>
+    <h1>Work Smarter.<br><em>Automate Everything.</em></h1>
+    <p>BizAutomation provides automation tools for small businesses — WhatsApp integrations, appointment booking systems, and automated customer communication workflows.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#services" class="btn-ghost">See What We Do</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="services">
+    <div class="section-label">What We Do</div>
+    <h2>Tools Built for Small Business</h2>
+    <p class="section-sub">Simple automation that saves hours every week — no technical knowledge required.</p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="card-icon">💬</span>
+        <h3>WhatsApp Automation</h3>
+        <p>Automated customer messaging, re-engagement flows, and broadcast campaigns via WhatsApp Business API.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📅</span>
+        <h3>Appointment Booking</h3>
+        <p>Scheduling systems that allow customers to book directly through WhatsApp or your website — no back and forth.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔗</span>
+        <h3>Messaging Integrations</h3>
+        <p>Connect your CRM, calendar, and communication platforms into one unified automated workflow.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔔</span>
+        <h3>Customer Communication</h3>
+        <p>Automated follow-ups, reminders, and responses that keep customers engaged without any manual effort.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="contact">
+    <div class="section-label">Contact</div>
+    <h2>Let's Talk</h2>
+    <p class="section-sub">Interested in automating your business? Reach out and we'll figure out what works for you.</p>
+
+    <div class="contact-box">
+      <p>Send us an email and we'll get back to you within 24 hours:</p>
+      <p><a href="mailto:info@bizautomation.tech">info@bizautomation.tech</a></p>
+      <div class="contact-detail">
+        <strong style="color:var(--text)">BizAutomation</strong><br>
+        bizautomation.tech<br>
+        Israel
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══ PRIVACY POLICY ══ -->
+<div class="policy-page" id="privacy">
+  <button class="back-btn" onclick="showMain()">← Back</button>
+  <h1>Privacy Policy</h1>
+  <p>BizAutomation provides automation tools for small businesses including messaging integrations, WhatsApp automation and appointment booking systems.</p>
+  <h2>Data Collection</h2>
+  <p>We collect only the information required to operate our services. This may include contact details provided directly by users or their customers through our automation workflows.</p>
+  <h2>Data Use</h2>
+  <p>Collected data is used solely to provide and improve our services. We do not sell or share personal data with third parties.</p>
+  <h2>Contact</h2>
+  <p><a href="mailto:info@bizautomation.tech">info@bizautomation.tech</a></p>
+</div>
+
+<!-- ══ TERMS ══ -->
+<div class="policy-page" id="terms">
+  <button class="back-btn" onclick="showMain()">← Back</button>
+  <h1>Terms of Service</h1>
+  <p>BizAutomation provides automation tools designed to help businesses automate customer communication and scheduling workflows.</p>
+  <h2>Use of Service</h2>
+  <p>Users agree to use the service in compliance with messaging platform policies and applicable laws.</p>
+  <h2>Limitation of Liability</h2>
+  <p>BizAutomation is not liable for any indirect or consequential damages arising from use of the service.</p>
+  <h2>Contact</h2>
+  <p><a href="mailto:info@bizautomation.tech">info@bizautomation.tech</a></p>
+</div>
+
+<footer>
+  <div style="display:flex;align-items:center;gap:0.5rem">
+    <svg width="20" height="20"><use href="#bee"/></svg>
+    <span>© 2026 BizAutomation · Israel · info@bizautomation.tech</span>
+  </div>
+  <div>
+    <a href="#" onclick="showPolicy('privacy')">Privacy Policy</a>
+    <a href="#" onclick="showPolicy('terms')">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+  function showPolicy(id) {
+    document.getElementById('main-content').style.display = 'none';
+    document.querySelectorAll('.policy-page').forEach(p => p.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+  function showMain() {
+    document.getElementById('main-content').style.display = 'block';
+    document.querySelectorAll('.policy-page').forEach(p => p.style.display = 'none');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
