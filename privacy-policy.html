@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy – BizAutomation</title>
+<meta name="description" content="Privacy Policy for BizAutomation – how we collect, use, and protect your data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0F0F0E;
+    --surface: #1A1A18;
+    --card:    #222220;
+    --border:  #2E2E2C;
+    --text:    #F0EDE6;
+    --muted:   #888880;
+    --honey:   #F5A623;
+    --honey2:  #E8820C;
+    --white:   #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -30%;
+    right: -20%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 3rem;
+    background: rgba(15,15,14,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+
+  .bee-icon {
+    width: 72px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-text span { color: var(--honey); }
+
+  nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+
+  nav a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  nav a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--honey) !important;
+    color: var(--bg) !important;
+    padding: 0.55rem 1.25rem !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--honey2) !important; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--honey); }
+
+  /* ── POLICY PAGE ── */
+  .policy-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 7rem 2rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--honey); }
+
+  .policy-wrap h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .policy-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .policy-wrap h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 2rem 0 0.5rem;
+    color: var(--honey);
+  }
+
+  .policy-wrap p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .policy-wrap a { color: var(--honey); text-decoration: none; }
+  .policy-wrap a:hover { text-decoration: underline; }
+
+  .policy-wrap ul {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .policy-wrap ul li { margin-bottom: 0.3rem; }
+</style>
+</head>
+<body>
+
+<!-- BEE SVG SYMBOL -->
+<svg style="display:none">
+  <symbol id="bee" viewBox="0 0 120 80">
+    <rect x="8" y="44" width="96" height="24" rx="8" fill="#F5A623"/>
+    <path d="M28 44 Q35 26 55 24 Q75 22 88 44Z" fill="#E8820C"/>
+    <path d="M34 44 Q40 30 55 28 Q68 27 78 44Z" fill="#B8E0FF" opacity="0.85"/>
+    <circle cx="30" cy="68" r="11" fill="#1A1A18"/>
+    <circle cx="30" cy="68" r="6" fill="#555"/>
+    <circle cx="30" cy="68" r="2.5" fill="#F5A623"/>
+    <circle cx="86" cy="68" r="11" fill="#1A1A18"/>
+    <circle cx="86" cy="68" r="6" fill="#555"/>
+    <circle cx="86" cy="68" r="2.5" fill="#F5A623"/>
+    <ellipse cx="104" cy="52" rx="5" ry="4" fill="#FFFACD" opacity="0.9"/>
+    <line x1="62" y1="44" x2="62" y2="66" stroke="#E8820C" stroke-width="1.5" opacity="0.5"/>
+    <path d="M36 42 Q42 32 54 30 Q64 29 72 42Z" fill="#B8E0FF" opacity="0.5"/>
+    <circle cx="54" cy="34" r="9" fill="#F5A623"/>
+    <circle cx="50" cy="32" r="2.2" fill="#1A1A18"/>
+    <circle cx="58" cy="32" r="2.2" fill="#1A1A18"/>
+    <circle cx="50.7" cy="31.3" r="0.7" fill="#fff"/>
+    <circle cx="58.7" cy="31.3" r="0.7" fill="#fff"/>
+    <path d="M50 37 Q54 40 58 37" stroke="#1A1A18" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <line x1="50" y1="26" x2="45" y2="20" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="58" y1="26" x2="63" y2="20" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="44.5" cy="19.5" r="2" fill="#F5A623"/>
+    <circle cx="63.5" cy="19.5" r="2" fill="#F5A623"/>
+    <ellipse cx="54" cy="44" rx="8" ry="5" fill="#F5A623"/>
+    <ellipse cx="54" cy="44" rx="8" ry="2" fill="#1A1A18" opacity="0.6"/>
+    <ellipse cx="42" cy="24" rx="11" ry="6" fill="#E0F0FF" opacity="0.8" transform="rotate(-30 42 24)"/>
+    <ellipse cx="66" cy="24" rx="11" ry="6" fill="#E0F0FF" opacity="0.8" transform="rotate(30 66 24)"/>
+    <circle cx="54" cy="42" r="4" fill="none" stroke="#1A1A18" stroke-width="1.5" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<nav>
+  <a class="logo" href="/">
+    <svg class="bee-icon"><use href="#bee"/></svg>
+    <span class="logo-text">Biz<span>Automation</span></span>
+  </a>
+  <ul>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<div class="policy-wrap">
+  <a class="back-link" href="/">← Back to Home</a>
+  <h1>Privacy Policy</h1>
+  <p class="policy-date">Last updated: March 2026</p>
+
+  <h2>1. Introduction</h2>
+  <p>BizAutomation ("we," "us," or "our") operates the website bizautomation.tech and provides business automation tools and services including messaging integrations, WhatsApp automation, and appointment booking systems. This Privacy Policy explains how we collect, use, and protect information when you use our services.</p>
+  <p>By using our services, you agree to the collection and use of information in accordance with this policy.</p>
+
+  <h2>2. Information We Collect</h2>
+  <p>We collect minimal information required to provide our automation services. This may include:</p>
+  <ul>
+    <li>Contact information you provide directly (name, email address, phone number)</li>
+    <li>Business information shared when setting up automation workflows</li>
+    <li>Customer contact data processed through your automation workflows on your behalf</li>
+    <li>Usage data such as pages visited, features used, and interaction logs</li>
+    <li>Technical data such as IP address, browser type, and device information</li>
+  </ul>
+
+  <h2>3. How We Use Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Provide, operate, and maintain our automation services</li>
+    <li>Set up and configure your automation workflows</li>
+    <li>Communicate with you about your account and service updates</li>
+    <li>Respond to your inquiries and provide customer support</li>
+    <li>Improve and develop our services</li>
+    <li>Comply with legal obligations</li>
+  </ul>
+
+  <h2>4. Data Sharing</h2>
+  <p>We do not sell your personal data. We do not share personal data with third parties for their own marketing purposes. We may share information in the following limited circumstances:</p>
+  <ul>
+    <li><strong>Service providers:</strong> We work with third-party service providers that help us operate our platform, including messaging APIs, automation tools, hosting providers, and analytics services. These providers only process data on our behalf and are bound by confidentiality obligations.</li>
+    <li><strong>Legal requirements:</strong> We may disclose information if required to do so by law or in response to valid legal process.</li>
+    <li><strong>Business transfers:</strong> If we are involved in a merger, acquisition, or asset sale, your information may be transferred as part of that transaction.</li>
+  </ul>
+
+  <h2>5. Data Security</h2>
+  <p>We implement appropriate technical and organizational measures to protect your information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+  <h2>6. Third-Party Services</h2>
+  <p>Our services integrate with and are built upon third-party platforms and APIs, which may include:</p>
+  <ul>
+    <li>WhatsApp Business API (Meta Platforms)</li>
+    <li>Messaging and communication APIs</li>
+    <li>Cloud hosting and infrastructure providers</li>
+    <li>Analytics and monitoring tools</li>
+    <li>Calendar and scheduling platforms</li>
+  </ul>
+  <p>Each third-party service has its own privacy policy governing how they handle data. We encourage you to review the privacy policies of any third-party services you interact with through our platform.</p>
+
+  <h2>7. Data Retention</h2>
+  <p>We retain your information for as long as necessary to provide our services and comply with our legal obligations. When you terminate your use of our services, we will delete or anonymize your data within a reasonable time period, except where we are required to retain it by law.</p>
+
+  <h2>8. Your Rights</h2>
+  <p>Depending on your location, you may have rights regarding your personal data, including the right to access, correct, or delete information we hold about you. To exercise any of these rights, please contact us at the email address below.</p>
+
+  <h2>9. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the "Last updated" date. We encourage you to review this policy periodically.</p>
+
+  <h2>10. Contact Information</h2>
+  <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+  <p><a href="mailto:info@bizautomation.tech">info@bizautomation.tech</a></p>
+  <p>BizAutomation · bizautomation.tech · Israel</p>
+</div>
+
+<footer>
+  <div style="display:flex;align-items:center;gap:0.5rem">
+    <svg width="20" height="20"><use href="#bee"/></svg>
+    <span>© 2026 BizAutomation · Israel · info@bizautomation.tech</span>
+  </div>
+  <div>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-of-service">Terms of Service</a>
+  </div>
+</footer>
+
+</body>
+</html>
